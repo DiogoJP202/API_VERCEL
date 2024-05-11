@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 
 const server = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const usuarios = [
     {
         nome: "Diogo",
@@ -23,6 +23,10 @@ server.use(cors({
     methods: 'GET' // Métodos HTTP permitidos
 }));
   
+
+server.get("/", (request, response) => {
+    return response.status(200).json("HELLO WORLD!");
+});
 
 server.get("/usuarios", (request, response) => {
     return response.status(200).json(usuarios);
